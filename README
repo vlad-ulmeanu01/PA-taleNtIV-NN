@@ -1,0 +1,31 @@
+taleNt IV G', H, B (SP rank) -- Ulmeanu Vlad.
+
+(incepe sa castige?? Doamne ajuta.)
+(+NAP bugfix operator Move)
+
+* ~30 GB de date de antrenament cumulate, folosit mult mai putine totusi.
+
+* pentru fiecare patratel controlat, inputul pentru retea consta din zona 11x11 de langa patratel
+centrata in el. fiecare patrat din zona are 3 moduri (aliat, neutru, dusman) si 3 caracteristici
+(productie, putere si cost minim pentru cucerire).
+
+* deci inputul are 11x11x3x3 noduri. initial nivelul de output avea 5 noduri (STILL/N/E/S/W), acum are
+doar 2 (STILL/N) - mai usor de antrenat. Pentru a determina o directie, rotesc inputul de 4 ori si vad
+care "N" este mai puternic (sau STILL in general). Daca am doar 2 noduri in output, e mai greu sa
+unesc eu greedy raspunsurile de la cele 4 rotiri. Daca reteaua e nesigura, las un algoritm default sa
+se ocupe.
+
+* folosesc 2 retele concomitent. daca un patratel e destul de aproape de un dusman, folosesc o retea
+antrenata specific pentru asta (CLOSE). In mod normal, folosesc FAR.
+
+* retelele folosesc un nivel ascuns de 100 de noduri.
+
+* din cauza ideii folosite, nu exista coordonare intre patratele. pot sa existe gafe tip 2 patratele
+adiacente aliate tot se interschimba intre ele, doua patratele se unesc si au puterea > 255, ...
+tot trebuie sa folosesc algoritmul default in cazurile astea.
+
+* input retele in ./RETEA/BotCode/netLoads .
+
+
+
+(FZR)
